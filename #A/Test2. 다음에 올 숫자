@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test155 : MonoBehaviour
+{
+    // 등차수열 혹은 등비수열 common이 매개변수로 주어질 때, 마지막 원소 다음으로 올 숫자를 return 하도록 solution 함수를 완성해보세요.
+    
+    void Start()
+    {
+        Solution(new int[] { 1, 2, 3, 4 });
+        Solution(new int[] { 2, 4, 8 });
+    }
+
+    int Solution(int[] common)
+    {
+        int correct = 0;
+
+        if (common[2] - common[1] == common[1] - common[0]) // 등차수열
+        {
+            int diff = common[1] - common[0];
+            correct = common[common.Length - 1] + diff;
+        }
+        else // 등비수열
+        {
+            int mul = common[1] / common[0];
+            correct = common[common.Length - 1] * mul;
+        }
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
