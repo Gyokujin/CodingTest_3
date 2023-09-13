@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test157 : MonoBehaviour
+{
+    // 문자열 "hello"에서 각 문자를 오른쪽으로 한 칸씩 밀고 마지막 문자는 맨 앞으로 이동시키면 "ohell"이 됩니다.
+    // 이것을 문자열을 민다고 정의한다면 문자열 A와 B가 매개변수로 주어질 때, A를 밀어서 B가 될 수 있다면 밀어야
+    // 하는 최소 횟수를 return하고 밀어서 B가 될 수 없으면 -1을 return 하도록 solution 함수를 완성해보세요.
+
+    void Start()
+    {
+        Solution("hello", "ohell");
+        Solution("apple", "elppa");
+        Solution("atat", "tata");
+        Solution("abc", "abc");
+    }
+
+    int Solution(string A, string B)
+    {
+        int correct = -1;
+        int count = 0;
+        string word = A;
+        
+        for (int i = 0; i < A.Length; i++)
+        {
+            if (word == B)
+            {
+                correct = count;
+                break;
+            }
+
+            string temp = A[A.Length - 1].ToString();
+
+            for (int j = 0; j < word.Length - 1; j++)
+            {
+                temp += word[j];
+            }
+
+            word = temp;
+            count++;
+        }
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
