@@ -1,0 +1,53 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test159 : MonoBehaviour
+{
+    // 머쓱이는 태어난 지 6개월 된 조카를 돌보고 있습니다. 조카는 아직 "aya", "ye", "woo", "ma" 네 가지 발음을 최대 한 번씩 사용해 조합한(이어 붙인) 발음밖에 하지 못합니다.
+    // 문자열 배열 babbling이 매개변수로 주어질 때, 머쓱이의 조카가 발음할 수 있는 단어의 개수를 return하도록 solution 함수를 완성해주세요.
+
+    void Start()
+    {
+        Solution(new string[] { "aya", "yee", "u", "maa", "wyeoo" });
+        Solution(new string[] { "ayaye", "uuuma", "ye", "yemawoo", "ayaa" });
+    }
+
+    int Solution(string[] babbling)
+    {
+        int correct = 0;
+        string[] ableWord = { "aya", "ye", "woo", "ma" }; // 조카가 가능한 발음
+
+        for (int i = 0; i < babbling.Length; i++)
+        {
+            string word = babbling[i];
+
+            for (int j = 0; j < ableWord.Length; j++)
+            {
+                string target = ableWord[j];
+
+                if (word.Length >= target.Length)
+                {
+                    string temp = word.Substring(0, target.Length);
+
+                    if (target == temp)
+                    {
+                        string s = word.Replace(temp, "");
+                        word = s;
+
+                        if (word == "")
+                        {
+                            correct++;
+                            break;
+                        }
+
+                        j = 0;
+                    }
+                }
+            }
+        }
+        
+        Debug.Log(correct);
+        return correct;
+    }
+}
