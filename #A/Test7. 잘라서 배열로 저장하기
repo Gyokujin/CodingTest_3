@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test160 : MonoBehaviour
+{
+    // 문자열 my_str과 n이 매개변수로 주어질 때, my_str을 길이 n씩 잘라서 저장한 배열을 return하도록 solution 함수를 완성해주세요.
+
+    void Start()
+    {
+        Solution("abc1Addfggg4556b", 6);
+        Solution("abcdef123", 3);
+    }
+
+    string[] Solution(string my_str, int n)
+    {
+        int number = my_str.Length % n == 0 ? my_str.Length / n : my_str.Length / n + 1;
+        string[] correct = new string[number];
+        int count = 0;
+        int index = 0;
+
+        for (int i = 0; i < number; i++)
+        {
+            correct[count] = my_str.Substring(index, my_str.Length - index >= n ? n : my_str.Length - index);
+            count++;
+            index += n;
+        }
+
+        foreach (string s in correct)
+        {
+            Debug.Log(s);
+        }
+
+        return correct;
+    }
+}
