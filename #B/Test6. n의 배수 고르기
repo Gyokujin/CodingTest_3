@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test167 : MonoBehaviour
+{
+    // 정수 n과 정수 배열 numlist가 매개변수로 주어질 때, numlist에서 n의 배수가 아닌 수들을 제거한 배열을 return하도록 solution 함수를 완성해주세요.
+    
+    void Start()
+    {
+        Solution(3, new int[] { 4, 5, 6, 7, 8, 9, 10, 11, 12 });
+        Solution(5, new int[] { 1, 9, 3, 10, 13, 5 });
+        Solution(12, new int[] { 2, 100, 120, 600, 12, 12 });
+    }
+
+    int[] Solution(int n, int[] numlist)
+    {
+        List<int> arrange = new List<int>();
+
+        for (int i = 0; i < numlist.Length; i++)
+        {
+            if (numlist[i] % n == 0)
+            {
+                arrange.Add(numlist[i]);
+            }
+        }
+
+        int[] correct = new int[arrange.Count];
+
+        for (int j = 0; j < arrange.Count; j++)
+        {
+            correct[j] = arrange[j];
+            Debug.Log(correct[j]);
+        }
+
+        return correct;
+    }
+}
