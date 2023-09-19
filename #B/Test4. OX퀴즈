@@ -1,0 +1,54 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test168 : MonoBehaviour
+{
+    // 덧셈, 뺄셈 수식들이 'X [연산자] Y = Z' 형태로 들어있는 문자열 배열 quiz가 매개변수로 주어집니다. 수식이 옳다면 "O"를 틀리다면 "X"를 순서대로 담은 배열을 return하도록 solution 함수를 완성해주세요.
+    
+    void Start()
+    {
+        Solution(new string[] { "3 - 4 = -3", "5 + 6 = 11" });
+        Solution(new string[] { "19 - 6 = 13", "5 + 66 = 71", "5 - 15 = 63", "3 - 1 = 2" });
+    }
+
+    string[] Solution(string[] quiz)
+    {
+        string[] correct = new string[quiz.Length];
+
+        for (int i = 0; i < quiz.Length; i++)
+        {
+            string q = quiz[i];
+            int num1 = 0;
+            int num2 = 0;
+            int num3 = 0;
+
+            string[] words = q.Split('=');
+            num3 = int.Parse(words[1]);
+
+            if (words[0].Contains("+")) // 식이 "+"인 경우
+            {
+                string[] numbers = words[0].Split('+');
+                num1 = int.Parse(numbers[0]);
+                num2 = int.Parse(numbers[1]);
+
+                correct[i] = num1 + num2 == num3 ? "O" : "X";
+            }
+            else
+            {
+                string[] numbers = words[0].Split('-');
+                num1 = int.Parse(numbers[0]);
+                num2 = int.Parse(numbers[1]);
+
+                correct[i] = num1 - num2 == num3 ? "O" : "X";
+            }
+        }
+
+        foreach (string s in correct)
+        {
+            Debug.Log(s);
+        }
+
+        return correct;
+    }
+}
