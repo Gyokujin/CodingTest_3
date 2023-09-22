@@ -1,0 +1,42 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test171 : MonoBehaviour
+{
+    // my_string은 "3 + 5"처럼 문자열로 된 수식입니다. 문자열 my_string이 매개변수로 주어질 때, 수식을 계산한 값을 return 하는 solution 함수를 완성해주세요. (연산자는 +, -만 존재합니다.)
+    
+    void Start()
+    {
+        Solution("3 + 4");
+        Solution("8 - 4");
+    }
+
+    int Solution(string my_string)
+    {
+        int correct = 0;
+        int num1 = 0;
+        int num2 = 0;
+        string oper = "";
+
+        if (my_string.Contains("+")) // + 연산
+        {
+            oper = "+";
+            string[] word = my_string.Split('+');
+            num1 = int.Parse(word[0]);
+            num2 = int.Parse(word[1]);
+            correct = num1 + num2;
+        }
+        else // - 연산
+        {
+            oper = "-";
+            string[] word = my_string.Split('-');
+            num1 = int.Parse(word[0]);
+            num2 = int.Parse(word[1]);
+            correct = num1 - num2;
+        }
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
