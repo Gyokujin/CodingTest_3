@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test170 : MonoBehaviour
+{
+    // 두 배열이 얼마나 유사한지 확인해보려고 합니다. 문자열 배열 s1과 s2가 주어질 때 같은 원소의 개수를 return하도록 solution 함수를 완성해주세요.
+    
+    void Start()
+    {
+        Solution(new string[] { "a", "b", "c" }, new string[] { "com", "b", "d", "p", "c" });
+        Solution(new string[] { "n", "omg" }, new string[] { "m", "dot" });
+    }
+
+    int Solution(string[] s1, string[] s2)
+    {
+        int correct = 0;
+
+        for (int i = 0; i < s1.Length; i++)
+        {
+            for (int j = 0; j < s2.Length; j++)
+            {
+                if (s1[i] == s2[j])
+                {
+                    correct++;
+                }
+            }
+        }
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
