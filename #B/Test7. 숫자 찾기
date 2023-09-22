@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test169 : MonoBehaviour
+{
+    // 정수 num과 k가 매개변수로 주어질 때, num을 이루는 숫자 중에 k가 있으면 num의 그 숫자가 있는 자리 수를 return하고 없으면 -1을 return 하도록 solution 함수를 완성해보세요.
+    
+    void Start()
+    {
+        Solution(29183, 1);
+        Solution(232443, 4);
+        Solution(123456, 7);
+    }
+
+    int Solution(int num, int k)
+    {
+        int correct = -1;
+        string word = num.ToString();
+
+        for (int i = 0; i < word.Length; i++)
+        {
+            int n = int.Parse(word[i].ToString());
+
+            if (n == k)
+            {
+                correct = i + 1; // 자리수는 1부터 세기 때문에
+                break;
+            }
+        }
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
