@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test173 : MonoBehaviour
+{
+    // 정수 n이 매개변수로 주어질 때, n의 약수를 오름차순으로 담은 배열을 return하도록 solution 함수를 완성해주세요.
+
+    void Start()
+    {
+        Solution(24);
+        Solution(29);
+    }
+
+    int[] Solution(int n)
+    {
+        List<int> arrange = new List<int>();
+
+        for (int i = 1; i < n + 1; i++)
+        {
+            if (n % i == 0) // 나머지가 없으면 약수
+            {
+                arrange.Add(i);
+            }
+        }
+
+        int[] correct = new int[arrange.Count];
+        int count = 0;
+
+        foreach (int num in arrange)
+        {
+            correct[count] = num;
+            Debug.Log(correct[count]);
+            count++;
+        }
+
+        return correct;
+    }
+}
