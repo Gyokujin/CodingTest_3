@@ -1,0 +1,46 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+public class Test174 : MonoBehaviour
+{
+    // 문자열 s가 매개변수로 주어집니다. s에서 한 번만 등장하는 문자를 사전 순으로 정렬한 문자열을 return 하도록 solution 함수를 완성해보세요. 한 번만 등장하는 문자가 없을 경우 빈 문자열을 return 합니다.
+
+    void Start()
+    {
+        Solution("abcabcadc");
+        Solution("abdc");
+        Solution("hello");
+    }
+
+    string Solution(string s)
+    {
+        string correct = "";
+
+        for (int i = 0; i < s.Length; i++)
+        {
+            char c = s[i];
+            int count = 0;
+
+            for (int j = 0; j < s.Length; j++)
+            {
+                if (c == s[j])
+                {
+                    count++;
+                }
+            }
+
+            if (count == 1) // 한 번만 등장했을 경우
+            {
+                correct += c;
+            }
+        }
+
+        correct = String.Concat(correct.OrderBy(ch => ch));
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
