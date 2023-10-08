@@ -1,0 +1,25 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test183 : MonoBehaviour
+{
+    // 이진수를 의미하는 두 개의 문자열 bin1과 bin2가 매개변수로 주어질 때, 두 이진수의 합을 return하도록 solution 함수를 완성해주세요.
+    
+    void Start()
+    {
+        Solution("10", "11");
+        Solution("1001", "1111");
+    }
+
+    string Solution(string bin1, string bin2)
+    {
+        int num1 = Convert.ToInt32(bin1, 2);
+        int num2 = Convert.ToInt32(bin2, 2);
+        string correct = Convert.ToString(num1 + num2, 2);
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
