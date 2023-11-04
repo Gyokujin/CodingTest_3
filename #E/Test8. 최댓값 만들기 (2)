@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test197 : MonoBehaviour
+{
+    // 정수 배열 numbers가 매개변수로 주어집니다. numbers의 원소 중 두 개를 곱해 만들 수 있는 최댓값을 return하도록 solution 함수를 완성해주세요.
+
+    void Start()
+    {
+        Solution(new int[] { 1, 2, -3, 4, -5 });
+        Solution(new int[] { 0, -31, 24, 10, 1, 9 });
+        Solution(new int[] { 10, 20, 30, 5, 5, 20, 5 });
+    }
+
+    int Solution(int[] numbers)
+    {
+        for (int i = 0; i < numbers.Length - 1; i++)
+        {
+            for (int j = i + 1; j < numbers.Length; j++)
+            {
+                if (numbers[i] > numbers[j])
+                {
+                    int temp = numbers[i];
+                    numbers[i] = numbers[j];
+                    numbers[j] = temp;
+                }
+            }
+        }
+
+        int num1 = numbers[0] * numbers[1]; // 두 음수의 곱
+        int num2 = numbers[numbers.Length - 2] * numbers[numbers.Length - 1]; // 두 양수의 곱
+
+        int correct = Mathf.Max(num1, num2);
+        Debug.Log(correct);
+        return correct;
+    }
+}
