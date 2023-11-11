@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test202 : MonoBehaviour
+{
+    // 문자열 my_string이 매개변수로 주어집니다. my_string안의 모든 자연수들의 합을 return하도록 solution 함수를 완성해주세요.
+
+    void Start()
+    {
+        Solution("aAb1B2cC34oOp");
+        Solution("1a2b3c4d123");
+    }
+
+    int Solution(string my_string)
+    {
+        int correct = 0;
+
+        for (int i = 0; i < my_string.Length; i++)
+        {
+            int num = 0;
+
+            try
+            {
+                num = int.Parse(my_string[i].ToString());
+            }
+            catch
+            {
+                num = 0;
+            }
+
+            correct += num;
+        }
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
