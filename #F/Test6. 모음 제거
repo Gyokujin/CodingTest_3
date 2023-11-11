@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test204 : MonoBehaviour
+{
+    // 영어에선 a, e, i, o, u 다섯 가지 알파벳을 모음으로 분류합니다. 문자열 my_string이 매개변수로 주어질 때 모음을 제거한 문자열을 return하도록 solution 함수를 완성해주세요.
+    
+    void Start()
+    {
+        Solution("bus");
+        Solution("nice to meet you");
+    }
+
+    string Solution(string my_string)
+    {
+        string correct = string.Empty;
+
+        for (int i = 0; i < my_string.Length; i++)
+        {
+            string s = my_string[i].ToString();
+
+            if (s != "a" && s != "e" && s != "i" && s != "o" && s != "u")
+            {
+                correct += s;
+            }
+            //if (s == "b" || s == "c" || s == "d" || s == "f" || s == "g" || s == "h" || s == "j" || 
+            //    s == "k" || s == "l" || s == "m" || s == "n" || s == "p" || s == "q" || s == "r" ||
+            //    s == "s" || s == "t" || s == "v" || s == "x" || s == "y" || s == "z" || s == " ")
+            //{
+            //    correct += s;
+            //}
+        }
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
