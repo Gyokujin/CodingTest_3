@@ -1,0 +1,54 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test211 : MonoBehaviour
+{
+    // 정수가 담긴 배열 numbers와 문자열 direction가 매개변수로 주어집니다. 배열 numbers의 원소를 direction방향으로 한 칸씩 회전시킨 배열을 return하도록 solution 함수를 완성해주세요.
+    
+    void Start()
+    {
+        Solution(new int[] { 1, 2, 3 }, "right");
+        Solution(new int[] { 4, 455, 6, 4, -1, 45, 6 }, "left");
+    }
+
+    int[] Solution(int[] numbers, string direction)
+    {
+        int[] correct = new int[numbers.Length];
+
+        if (direction == "left")
+        {
+            for (int i = 0; i < correct.Length; i++)
+            {
+                if (i == correct.Length - 1) // 마지막 순번
+                {
+                    correct[i] = numbers[0];
+                }
+                else
+                {
+                    correct[i] = numbers[i + 1];
+                }
+
+                Debug.Log(correct[i]);
+            }
+        }
+        else if (direction == "right")
+        {
+            for (int i = 0; i < correct.Length; i++)
+            {
+                if (i == 0) // 마지막 순번
+                {
+                    correct[i] = numbers[numbers.Length - 1];
+                }
+                else
+                {
+                    correct[i] = numbers[i - 1];
+                }
+
+                Debug.Log(correct[i]);
+            }
+        }
+
+        return correct;
+    }
+}
