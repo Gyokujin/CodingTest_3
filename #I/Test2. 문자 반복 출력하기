@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test227 : MonoBehaviour
+{
+    // 문자열 my_string과 정수 n이 매개변수로 주어질 때, my_string에 들어있는 각 문자를 n만큼 반복한 문자열을 return 하도록 solution 함수를 완성해보세요.
+    
+    void Start()
+    {
+        Solution("hello", 3);
+        Solution("New World", 2);
+        Solution("Speed START", 3);
+    }
+
+
+    string Solution(string my_string, int n)
+    {
+        string correct = string.Empty;
+
+        for (int i = 0; i < my_string.Length; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                correct += my_string[i];
+            }
+        }
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
