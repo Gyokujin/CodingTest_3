@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test226 : MonoBehaviour
+{
+    // 문자열 my_string과 문자 letter이 매개변수로 주어집니다. my_string에서 letter를 제거한 문자열을 return하도록 solution 함수를 완성해주세요.
+    
+    void Start()
+    {
+        Solution("abcdef", "f");
+        Solution("BCBdbe", "B");
+    }
+
+
+    string Solution(string my_string, string letter)
+    {
+        string correct = string.Empty;
+
+        for (int i = 0; i < my_string.Length; i++)
+        {
+            string alphabet = my_string[i].ToString();
+            
+            if (alphabet != letter)
+            {
+                correct += alphabet;
+            }
+        }
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
