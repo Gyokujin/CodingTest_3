@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test230 : MonoBehaviour
+{
+    // 문자열 my_string이 매개변수로 주어집니다. my_string을 거꾸로 뒤집은 문자열을 return하도록 solution 함수를 완성해주세요.
+
+    void Start()
+    {
+        Solution("jaron");
+        Solution("bread");
+        Solution("Choice");
+    }
+
+    string Solution(string my_string)
+    {
+        string correct = string.Empty;
+
+        for (int i = my_string.Length - 1; i >= 0; i--)
+        {
+            correct += my_string[i];
+        }
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
