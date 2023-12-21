@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test232 : MonoBehaviour
+{
+    // 머쓱이는 40살인 선생님이 몇 년도에 태어났는지 궁금해졌습니다. 나이 age가 주어질 때, 2022년을 기준 출생 연도를 return 하는 solution 함수를 완성해주세요.
+    
+    void Start()
+    {
+        Solution(40);
+        Solution(23);
+        Solution(28);
+        Solution(15);
+        Solution(58);
+        Solution(6);
+    }
+
+    int Solution(int n)
+    {
+        int correct = 2022 - n + 1; // 태어난 기준으로 1살
+        Debug.Log(correct);
+        return correct;
+    }
+}
