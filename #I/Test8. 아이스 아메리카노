@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test233 : MonoBehaviour
+{
+    // 머쓱이는 추운 날에도 아이스 아메리카노만 마십니다. 아이스 아메리카노는 한잔에 5,500원입니다. 머쓱이가 가지고 있는 돈 money가 매개변수로 주어질 때, 머쓱이가 최대로 마실 수 있는 아메리카노의 잔 수와 남는 돈을 순서대로 담은 배열을 return 하도록 solution 함수를 완성해보세요.
+    
+    void Start()
+    {
+        Solution(5500);
+        Solution(15000);
+        Solution(11500);
+        Solution(2500);
+    }
+
+    int[] Solution(int money)
+    {
+        int[] correct = new int[2];
+        correct[0] = money / 5500; // 아이스 아메리카노 한잔의 가격은 5500
+        correct[1] = money % 5500;
+
+        Debug.Log(money + "원으로 " + correct[0] + "잔을 살 수 있으며 " + correct[1] + "원이 남는다.");
+        return correct;
+    }
+}
