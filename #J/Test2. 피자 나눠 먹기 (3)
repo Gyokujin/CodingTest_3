@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test236 : MonoBehaviour
+{
+    // 머쓱이네 피자가게는 피자를 두 조각에서 열 조각까지 원하는 조각 수로 잘라줍니다. 피자 조각 수 slice와 피자를 먹는 사람의 수 n이 매개변수로 주어질 때, n명의 사람이 최소 한 조각 이상 피자를 먹으려면 최소 몇 판의 피자를 시켜야 하는지를 return 하도록 solution 함수를 완성해보세요.
+    
+    void Start()
+    {
+        Solution(7, 10);
+        Solution(4, 12);
+        Solution(5, 2);
+        Solution(8, 18);
+        Solution(4, 4);
+        Solution(6, 17);
+    }
+
+    int Solution(int slice, int n)
+    {
+        int correct = 0;
+
+        if (slice >= n) // 인원보다 조각 수가 더 많은 경우 한 판만 필요하다.
+        {
+            correct = 1;
+        }
+        else if (n % slice == 0) // 인원이 더 많으며 인원 수에 맞게 나눠지면 몫만큼 구매
+        {
+            correct = n / slice;
+        }
+        else // 아닌 경우는 한판 더 구매
+        {
+            correct = n / slice + 1;
+        }
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
