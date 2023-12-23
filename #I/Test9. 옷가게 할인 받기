@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test234 : MonoBehaviour
+{
+    // 머쓱이네 옷가게는 10만 원 이상 사면 5%, 30만 원 이상 사면 10%, 50만 원 이상 사면 20%를 할인해줍니다. 구매한 옷의 가격 price가 주어질 때, 지불해야 할 금액을 return 하도록 solution 함수를 완성해보세요.
+    
+    void Start()
+    {
+        Solution(150000);
+        Solution(580000);
+        Solution(320000);
+        Solution(780000);
+    }
+
+    int Solution(int price)
+    {
+        int correct = 0;
+
+        if (price >= 500000) // 50만 원 이상 구매시 20% 할인
+        {
+            correct = price - (int)(price * 0.2f);
+        }
+        else if (price >= 300000) // 30만 원 이상 구매시 10% 할인
+        {
+            correct = price - (int)(price * 0.1f);
+        }
+        else if (price >= 100000) // 10만 원 이상 구매시 5% 할인
+        {
+            correct = price - (int)(price * 0.05f);
+        }
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
