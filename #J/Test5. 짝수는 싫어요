@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test239 : MonoBehaviour
+{
+    // 정수 n이 매개변수로 주어질 때, n 이하의 홀수가 오름차순으로 담긴 배열을 return하도록 solution 함수를 완성해주세요.
+    
+    void Start()
+    {
+        Solution(10);
+        Solution(15);
+        Solution(18);
+        Solution(25);
+    }
+
+    int[] Solution(int n)
+    {
+        List<int> numbers = new List<int>();
+
+        for (int i = 0; i <= n; i++)
+        {
+            if (i % 2 != 0) // 홀수이면 추가
+            {
+                numbers.Add(i);
+            }
+        }
+
+        int[] correct = new int[numbers.Count];
+
+        for (int i = 0; i < correct.Length; i++)
+        {
+            correct[i] = numbers[i];
+            Debug.Log(correct[i]);
+        }
+
+        return correct;
+    }
+}
