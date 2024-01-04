@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test247 : MonoBehaviour
+{
+    // 정수 num1, num2가 매개변수로 주어질 때, num1을 num2로 나눈 몫을 return 하도록 solution 함수를 완성해주세요.
+    
+    void Start()
+    {
+        Solution(10, 5);
+        Solution(7, 2);
+        Solution(10, 2);
+        Solution(18, 4);
+        Solution(5, 20);
+    }
+
+    int Solution(int num1, int num2)
+    {
+        int correct = num1 / num2;
+        Debug.Log(correct);
+        return correct;
+    }
+}
