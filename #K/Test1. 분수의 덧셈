@@ -1,0 +1,59 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test244 : MonoBehaviour
+{
+    // 첫 번째 분수의 분자와 분모를 뜻하는 numer1, denom1, 두 번째 분수의 분자와 분모를 뜻하는 numer2, denom2가 매개변수로 주어집니다. 두 분수를 더한 값을 기약 분수로 나타냈을 때 분자와 분모를 순서대로 담은 배열을 return 하도록 solution 함수를 완성해보세요.
+    
+    void Start()
+    {
+        Solution(1, 2, 3, 4);
+        Solution(9, 2, 1, 3);
+        Solution(8, 9, 11, 2);
+        Solution(12, 5, 8, 4);
+    }
+
+    int[] Solution(int number1, int denom1, int number2, int denom2)
+    {
+        int[] correct = new int[2];
+        int[] fraction1 = { number1, denom1 }; // 첫번째 분수의 분자, 분모
+        int[] fraction2 = { number2, denom2 }; // 두번째 분수의 분자, 분모
+
+        if (denom1 != denom2) // 분모가 다을 경우 통분한다
+        {
+            int targetDenom = denom1 * denom2;
+            correct[1] = targetDenom;
+
+            fraction1[0] *= targetDenom / denom1;
+            fraction1[1] *= targetDenom / denom1;
+            fraction2[0] *= targetDenom / denom2;
+            fraction2[1] *= targetDenom / denom2;
+        }
+        else // 분모가 같을 경우 그대로 대입한다
+        {
+            correct[1] = denom1;
+        }
+
+        correct[0] = fraction1[0] + fraction2[0];
+        int maxNum = 0; // 기약분수로 나누기 전 최대공약수를 대입한다
+
+        for (int i = 1; i <= correct[1]; i++)
+        {
+            if (correct[0] % i == 0 && correct[1] % i == 0)
+            {
+                maxNum = i;
+            }
+        }
+
+        if (maxNum != 0) // 기약분수가 아닐 경우만 나눈다
+        {
+            correct[0] /= maxNum;
+            correct[1] /= maxNum;
+        }
+
+        Debug.Log(correct[0]);
+        Debug.Log(correct[1]);
+        return fraction1;
+    }
+}
