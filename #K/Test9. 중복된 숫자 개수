@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test252 : MonoBehaviour
+{
+    // 정수가 담긴 배열 array와 정수 n이 매개변수로 주어질 때, array에 n이 몇 개 있는 지를 return 하도록 solution 함수를 완성해보세요.
+    
+    void Start()
+    {
+        Solution(new int[] { 1, 1, 2, 3, 4, 5 }, 1);
+        Solution(new int[] { 0, 2, 3, 4 }, 1);
+        Solution(new int[] { 5, 5, 5, 5 }, 5);
+        Solution(new int[] { 6, 2, 2, 3, 0 }, 2);
+        Solution(new int[] { 1, 1, 2, 2, 3, 3, 4, 4 }, 5);
+    }
+
+    int Solution(int[] array, int n)
+    {
+        int correct = 0;
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] == n)
+            {
+                correct++;
+            }
+        }
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
