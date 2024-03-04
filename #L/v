@@ -1,0 +1,25 @@
+using System;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        // 문자열 my_string, overwrite_string과 정수 s가 주어집니다. 문자열 my_string의 인덱스 s부터 overwrite_string의 길이만큼을 문자열 overwrite_string으로 바꾼 문자열을 return 하는 solution 함수를 작성해 주세요.
+
+        static void Main(string[] args)
+        {
+            Correct("He11oWor1d", "lloWorl", 2);
+            Correct("Program29b8UYP", "merS123", 7);
+        }
+
+        static string Correct(string my_string, string overwrite_string, int s)
+        {
+            string correct = my_string.Substring(0, s);
+            correct += overwrite_string;
+            correct += my_string.Substring(s + overwrite_string.Length, my_string.Length - correct.Length);
+            Console.WriteLine(correct);
+          
+            return correct;
+        }
+    }
+}
