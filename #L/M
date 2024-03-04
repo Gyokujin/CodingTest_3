@@ -1,0 +1,21 @@
+using System;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        // 정수 number와 n, m이 주어집니다. number가 n의 배수이면서 m의 배수이면 1을 아니라면 0을 return하도록 solution 함수를 완성해주세요.
+
+        static void Main(string[] args)
+        {
+            Solution(60, 2, 3);
+            Solution(55, 10, 5);
+        }
+
+        public static int Solution(int number, int n, int m)
+        {
+            int correct = (number % n == 0) && (number % m) == 0 ? 1 : 0;
+            return correct;
+        }
+    }
+}
