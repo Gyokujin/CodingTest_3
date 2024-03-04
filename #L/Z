@@ -1,0 +1,37 @@
+using System;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        // 정수가 담긴 리스트 num_list가 주어집니다. num_list의 홀수만 순서대로 이어 붙인 수와 짝수만 순서대로 이어 붙인 수의 합을 return하도록 solution 함수를 완성해주세요.
+
+        static void Main(string[] args)
+        {
+            Correct(new int[] { 3, 4, 5, 2, 1 });
+            Correct(new int[] { 5, 7, 8, 3 });
+        }
+
+        static int Correct(int[] num_list)
+        {
+            string oddNum = string.Empty;
+            string evenNum = string.Empty;
+
+            for (int i = 0; i < num_list.Length; i++)
+            {
+                if (num_list[i] % 2 != 0)
+                {
+                    oddNum += num_list[i].ToString();
+                }
+                else
+                {
+                    evenNum += num_list[i].ToString();
+                }
+            }
+
+            int answer = int.Parse(oddNum) + int.Parse(evenNum);
+            Console.WriteLine(answer);
+            return answer;
+        }
+    }
+}
