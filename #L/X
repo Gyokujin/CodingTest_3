@@ -1,0 +1,28 @@
+using System;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        // 자연수 n이 입력으로 주어졌을 때 만약 n이 짝수이면 "n is even"을, 홀수이면 "n is odd"를 출력하는 코드를 작성해 보세요.
+
+        static void Main(string[] args)
+        {
+            int input = int.Parse(Console.ReadLine());
+            string correct = input % 2 == 0 ? $"{input} is even" : $"{input} is odd";
+            Console.WriteLine(correct);
+        }
+
+        static string Correct(string my_string, string overwrite_string, int s)
+        {
+            string correct = my_string.Substring(0, s);
+            correct += overwrite_string;
+
+            Console.WriteLine(s + overwrite_string.Length);
+            correct += my_string.Substring(s + overwrite_string.Length, my_string.Length - correct.Length);
+
+            Console.WriteLine(correct);
+            return correct;
+        }
+    }
+}
