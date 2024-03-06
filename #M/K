@@ -9,7 +9,7 @@ public class Solution {
     public int solution(int a, int b) {
         int numA = int.Parse(a.ToString() + b.ToString());
         int numB = int.Parse(b.ToString() + a.ToString());
-        int answer = numA > numB ? numA : numB;
+        int answer = numA >= numB ? numA : numB;
         return answer;
     }
 }
