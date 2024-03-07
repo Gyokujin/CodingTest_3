@@ -1,0 +1,37 @@
+namespace ConsoleApp5
+{
+    internal class Program
+    {
+        // 크기 10의 정수 배열을 만들고, 원하는 수를 넣어 초기화한다. 그 배열에 저장된 수의 순서를 뒤집는다.
+
+        static void Main()
+        {
+            int[] numbers = new int[10];
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Console.Write($"{i}번째 숫자를 입력하세요.");
+                numbers[i] = int.Parse(Console.ReadLine());
+            }
+
+            foreach (int num in numbers)
+            {
+                Console.WriteLine(num);
+            }
+
+            Console.WriteLine("배열을 뒤집으면");
+
+            for (int i = 0; i < numbers.Length / 2; i++)
+            {
+                int temp = numbers[numbers.Length - i - 1];
+                numbers[numbers.Length - i - 1] = numbers[i];
+                numbers[i] = temp;
+            }
+
+            foreach (int num in numbers)
+            {
+                Console.WriteLine(num);
+            }
+        }
+    }
+}
