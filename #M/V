@@ -1,0 +1,51 @@
+namespace ConsoleApp5
+{
+    internal class Program
+    {
+        // 정수의 리스트를 만든다. 리스트를 작은 수부터 큰수 순서로 정렬한다.
+
+        static void Main()
+        {
+            List<int> arr = new List<int>();
+            Console.Write("리스트의 크기를 입력하세요.");
+            int count = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < count; i++)
+            {
+                Console.Write($"{i}번째 값을 입력하세요.");
+                int num = int.Parse(Console.ReadLine());
+                arr.Add(num);
+            }
+
+            Console.WriteLine("정렬전");
+
+            foreach (int num in arr)
+                Console.WriteLine(num);
+
+            for (int i = 0; i< arr.Count - 1; i++)
+            {
+                int min = arr[i];
+                int minIndex = i;
+
+                for (int j = i + 1; j < arr.Count; j++)
+                {
+                    if (arr[j] < min)
+                    {
+                        min = arr[j];
+                        minIndex = j;
+                    }
+                }
+
+                arr.RemoveAt(minIndex);
+                arr.Insert(i, min);
+            }
+
+            Console.WriteLine("정렬후");
+
+            foreach (int num in arr)
+            {
+                Console.WriteLine(num);
+            }
+        }
+    }
+}
