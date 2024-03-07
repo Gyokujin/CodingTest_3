@@ -1,0 +1,47 @@
+namespace ConsoleApp5
+{
+    internal class Program
+    {
+        // 1차원 정수 배열에 수를 채운다. 그 수를 작은 수부터 큰 수 순서로 정렬한다.
+
+        static void Main()
+        {
+            Console.Write("배열의 크기를 입력하세요. ");
+            int count = int.Parse(Console.ReadLine());
+            int[] arr = new int[count];
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write($"{i}번째 값을 입력하세요. ");
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("정렬전");
+
+            foreach (int num in arr)
+            {
+                Console.WriteLine(num);
+            }
+
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] > arr[j])
+                    {
+                        int temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+
+            Console.WriteLine("정렬후");
+
+            foreach (int num in arr)
+            {
+                Console.WriteLine(num);
+            }
+        }
+    }
+}
