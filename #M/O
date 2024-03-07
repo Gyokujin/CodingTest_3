@@ -1,0 +1,29 @@
+namespace ConsoleApp5
+{
+    internal class Program
+    {
+        // 변수 a에 초기값, 변수 b에 공비를 저장한 후, 등비수열 10항을 출력한다.
+
+        static void Main(string[] args)
+        {
+            Console.Write("초기값을 입력하세요.");
+            int a = int.Parse(Console.ReadLine());
+
+            Console.Write("공비를 입력하세요.");
+            int b = int.Parse(Console.ReadLine());
+
+            int[] numbers = new int[10];
+            int num = a;
+            numbers[0] = a;
+
+            for (int i = 1; i < numbers.Length; i++)
+            {
+                num *= b;
+                numbers[i] = num;
+                Console.WriteLine(numbers[i]);
+            }
+
+            Console.WriteLine($"10항은 {numbers[9]}");
+        }
+    }
+}
