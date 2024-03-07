@@ -1,0 +1,37 @@
+namespace ConsoleApp5
+{
+    internal class Program
+    {
+        // [몬스터이름 : 경험치숫자]로 이루어진 Dictionary를 만들어 원하는 수의 데이터를 넣는다. 모든 몬스터의 평균을 출력한다.
+
+        static void Main()
+        {
+            Dictionary<string, int> monsterEXP = new Dictionary<string, int>();
+
+            Console.Write("몬스터의 수를 입력하세요.");
+            int monsterCount = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < monsterCount; i++)
+            {
+                Console.Write("몬스터 이름 : ");
+                string name = Console.ReadLine();
+
+                Console.Write("경험치 : ");
+                int EXP = int.Parse(Console.ReadLine());
+
+                monsterEXP.Add(name, EXP);
+                Console.WriteLine($"{name} : {EXP}");
+            }
+
+            int sum = 0;
+
+            foreach (KeyValuePair<string, int> EXPs in monsterEXP)
+            {
+                sum += EXPs.Value;
+            }
+
+            int correct = sum / monsterCount;
+            Console.WriteLine($"경험치의 평균은 {correct}");
+        }
+    }
+}
