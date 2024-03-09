@@ -1,0 +1,19 @@
+using System;
+
+public class Solution {
+    // 정수가 담긴 리스트 num_list가 주어질 때, 모든 원소들의 곱이 모든 원소들의 합의 제곱보다 작으면 1을 크면 0을 return하도록 solution 함수를 완성해주세요.
+
+    public int solution(int[] num_list) {
+        int numA = 0;
+        int numB = 1;
+        
+        for (int i = 0; i < num_list.Length; i++)
+        {
+            numA += num_list[i];
+            numB *= num_list[i];
+        }
+        
+        int answer = numA * numA > numB ? 1 : 0;
+        return answer;
+    }
+}
