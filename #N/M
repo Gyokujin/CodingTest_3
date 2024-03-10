@@ -1,0 +1,23 @@
+using System;
+
+public class Solution {
+    public int[] solution(int[] num_list) {
+        int[] answer = new int[num_list.Length + 1];
+        
+        for (int i = 0; i < answer.Length; i++){
+            if (i != answer.Length - 1){
+                answer[i] = num_list[i];
+            }
+            else{
+                if (num_list[i - 1] > num_list[i - 2]){
+                    answer[i] = num_list[i - 1] - num_list[i - 2];
+                }
+                else{
+                    answer[i] = num_list[i - 1] * 2;
+                }
+            }
+        }
+        
+        return answer;
+    }
+}
