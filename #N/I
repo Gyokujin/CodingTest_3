@@ -1,0 +1,31 @@
+using System;
+
+public class Solution {
+    public int solution(int n, string control) {
+        int answer = n;
+        
+        for (int i = 0; i < control.Length; i++){
+            string s = control[i].ToString();
+            int amount = 0;
+            
+            switch (s){
+                case "w":
+                    amount = 1;
+                    break;
+                case "s":
+                    amount = -1;
+                    break;
+                case "d":
+                    amount = 10;
+                    break;
+                case "a":
+                    amount = -10;
+                    break;
+            }
+            
+            answer += amount;
+        }
+        
+        return answer;
+    }
+}
