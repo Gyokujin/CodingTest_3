@@ -1,0 +1,26 @@
+using System;
+
+public class Solution {
+    public string solution(string n_str) 
+    {
+        string answer = "";
+        bool skipAble = true;
+        
+        for (int i = 0; i < n_str.Length; i++)
+        {
+            string s = n_str[i].ToString();
+            
+            if (skipAble && s != "0")
+            {
+                skipAble = false;
+            }
+            
+            if (!skipAble)
+            {
+                answer += s;
+            }
+        }
+
+        return answer;
+    }
+}
