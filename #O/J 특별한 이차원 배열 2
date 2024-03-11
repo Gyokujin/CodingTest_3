@@ -1,0 +1,26 @@
+using System;
+
+public class Solution {
+    public int solution(int[,] arr) 
+    {
+        bool isAble = true;
+        
+        for (int i = 0; i < arr.GetLength(0); i++)
+        {
+            for (int j = 0; j < arr.GetLength(1); j++)
+            {
+                int numA = arr[i, j];
+                int numB = arr[j, i];
+                
+                if (numA != numB)
+                {
+                    isAble = false;
+                    break;
+                }
+            }
+        }
+        
+        int answer = isAble ? 1 : 0;
+        return answer;
+    }
+}
