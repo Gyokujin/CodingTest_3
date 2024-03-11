@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+
+public class Solution {
+// 정수 배열 arr과 delete_list가 있습니다. arr의 원소 중 delete_list의 원소를 모두 삭제하고 남은 원소들은 기존의 arr에 있던 순서를 유지한 배열을 return 하는 solution 함수를 작성해 주세요.
+
+    public int[] solution(int[] arr, int[] delete_list) 
+    {
+        List<int> numList = new List<int>();
+        
+        for (int i = 0; i < arr.Length; i++)
+        {
+            bool isAble = true;
+            
+            for (int j = 0; j < delete_list.Length; j++)
+            {
+                if (arr[i] == delete_list[j])
+                {
+                    isAble = false;
+                    break;
+                }
+            }
+            
+            if (isAble)
+                numList.Add(arr[i]);
+        }
+        
+        int[] answer = new int[numList.Count];
+        
+        for (int i = 0; i < answer.Length; i++)
+        {
+            answer[i] = numList[i];
+        }
+        
+        return answer;
+    }
+}
