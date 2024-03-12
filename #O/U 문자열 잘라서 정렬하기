@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+
+public class Solution {
+// 문자열 myString이 주어집니다. "x"를 기준으로 해당 문자열을 잘라내 배열을 만든 후 사전순으로 정렬한 배열을 return 하는 solution 함수를 완성해 주세요. 단, 빈 문자열은 반환할 배열에 넣지 않습니다.
+
+    public string[] solution(string myString) 
+    {
+        List <string> words = new List<string>();
+        string curS = "";
+        
+        for (int i = 0; i < myString.Length; i++)
+        {
+            string s = myString[i].ToString();
+            
+            if (s != "x")
+            {
+                curS += s;
+            }
+            else
+            {
+                if (curS != "")
+                {
+                    words.Add(curS);
+                }
+                
+                curS = "";
+            }
+        }
+        
+        if (curS != "")
+            words.Add(curS);
+        
+        string[] answer = new string[words.Count];
+        
+        for (int j = 0; j < answer.Length; j++)
+        {
+            answer[j] = words[j];
+        }
+        
+        Array.Sort(answer);
+        return answer;
+    }
+}
