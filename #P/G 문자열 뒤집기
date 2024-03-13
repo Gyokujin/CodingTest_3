@@ -1,0 +1,28 @@
+using System;
+
+public class Solution 
+{
+    // 문자열 my_string과 정수 s, e가 매개변수로 주어질 때, my_string에서 인덱스 s부터 인덱스 e까지를 뒤집은 문자열을 return 하는 solution 함수를 작성해 주세요.
+
+    public string solution(string my_string, int s, int e) 
+    {
+        string answer = "";
+        
+        for (int i = 0; i < s; i ++)
+        {
+            answer += my_string[i].ToString();
+        }
+        
+        for (int j = e; j >= s; j --)
+        {
+            answer += my_string[j].ToString();
+        }
+        
+        for (int k = e + 1; k < my_string.Length; k ++)
+        {
+            answer += my_string[k].ToString();
+        }
+        
+        return answer;
+    }
+}
