@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+
+public class Solution 
+{
+    // 정수 n이 매개변수로 주어질 때, n 이하의 홀수가 오름차순으로 담긴 배열을 return하도록 solution 함수를 완성해주세요.
+
+    public int[] solution(int n) 
+    {
+        List<int> numbers = new List<int>();
+        
+        for (int i = 1; i <= n; i = i + 2)
+        {
+            numbers.Add(i);
+        }
+        
+        int[] answer = new int[numbers.Count];
+        
+        for (int j = 0; j < answer.Length; j++)
+        {
+            answer[j] = numbers[j];
+        }
+        
+        return answer;
+    }
+}
