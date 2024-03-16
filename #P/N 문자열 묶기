@@ -1,0 +1,36 @@
+namespace ConsoleApp6
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Solution(new string[] { "a", "bc", "d", "efg", "hi", "abcde" });
+        }
+
+        public static int Solution(string[] strArr)
+        {
+            List<int> lengths = new List<int>();
+
+            for (int i = 0; i < strArr.Length; i++)
+            {
+                lengths.Add(strArr[i].Length);
+            }
+
+            foreach (int i in lengths)
+                Console.WriteLine(i);
+
+            Console.WriteLine();
+            int[] arr = new int[lengths.Count];
+
+            for (int j = 0; j < strArr.Length; j++)
+            {
+                arr[lengths[j]]++;
+            }
+
+            foreach (int i in arr)
+                Console.WriteLine(i);
+
+            return arr.Max();
+        }
+    }
+}
