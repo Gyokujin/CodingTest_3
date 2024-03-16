@@ -1,0 +1,71 @@
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            solution("582", "734");
+            solution("18446744073709551615", "287346502836570928366");
+            solution("0", "0");
+            solution("1234", "456789");
+        }
+
+        public static string solution(string a, string b)
+        {
+            int index = 0;
+
+            if (a.Length >= b.Length)
+            {
+                index = a.Length + 1; // 합칠때 자릿수가 변할수 있기 때문에 여유 공간을 둔다.
+            }
+            else
+            {
+                index = b.Length + 1;
+            }
+
+            int[] numberSum = new int[index];
+
+            for (int i = 0; i < index; i++)
+            {
+                int numA = 0;
+                int numB = 0;
+                
+                if (a.Length > i)
+                {
+                    numA = int.Parse(a[a.Length - i - 1].ToString());
+                }
+
+                if (b.Length > i)
+                {
+                    numB = int.Parse(b[b.Length - i - 1].ToString());
+                }
+
+                numberSum[i] = numA + numB;
+            }
+
+            for (int i = 0; i < index; i++) // 각 자릿수에 10 이상인 숫자는 윗 자리에 +1을 연산한다.
+            {
+                if (numberSum[i] >= 10)
+                {
+                    numberSum[i + 1]++; // 윗 자리에 +1
+                    numberSum[i] -= 10; // 자기 자리는 -10
+                }
+            }
+
+            string answer = string.Empty;
+
+            for (int i = 0; i < index; i++) // 마지막으로 answer에 각 자릿수의 숫자를 문자로 변형하여 추가한다.
+            {
+                int num = numberSum[i];
+
+                if (num == 0 && i == index - 1)
+                    continue;
+
+                answer = numberSum[i].ToString() + answer;
+            }
+
+            Console.WriteLine(answer);
+            return answer;
+        }
+    }
+}
