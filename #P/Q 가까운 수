@@ -1,0 +1,26 @@
+using System;
+
+public class Solution {
+    public int solution(int[] array, int n) 
+    {
+        int answer = 0;        
+        int diff = 0;
+        
+        for (int i = 0; i < array.Length; i++)
+        {
+            int curDiff = Math.Abs(n - array[i]);
+            
+            if (i == 0 || diff > curDiff)
+            {
+                diff = curDiff;
+                answer = array[i];
+            }
+            else if (diff == curDiff && answer > array[i])
+            {
+                answer = array[i];
+            }
+        }
+        
+        return answer;
+    }
+}
