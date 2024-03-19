@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+
+public class Solution {
+    public int[] solution(int n, int[] slicer, int[] num_list) 
+    {
+        List<int> arrange = new List<int>();
+        int start = 0;
+        int end = 0;
+        int dis = 1;
+        
+        switch (n)
+        {
+            case 1:
+                start = 0;
+                end = slicer[1];
+                dis = 1;
+                break;
+                
+            case 2:
+                start = slicer[0];
+                end = num_list.Length - 1;
+                dis = 1;
+                break;
+                
+            case 3:
+                start = slicer[0];
+                end = slicer[1];
+                dis = 1;
+                break;
+                
+            case 4:
+                start = slicer[0];
+                end = slicer[1];
+                dis = slicer[2];
+                break;
+        }
+        
+        for (int i = start; i <= end; i = i + dis)
+        {
+            arrange.Add(num_list[i]);
+        }
+        
+        int[] answer = new int[arrange.Count];
+        
+        for (int i = 0; i < answer.Length; i++)
+        {
+            answer[i] = arrange[i];
+        }
+        
+        return answer;
+    }
+}
