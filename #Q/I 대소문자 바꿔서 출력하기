@@ -1,0 +1,28 @@
+using System;
+
+public class Example
+{
+    public static void Main()
+    {
+        string input = Console.ReadLine();
+        string correct = string.Empty;
+        
+        for (int i = 0; i < input.Length; i++)
+        {
+            int charNum = (int)input[i];
+            
+            if (charNum >= 65 && charNum <= 90) // A ~ Z : 65 ~ 90, a ~ z : 97 ~ 122
+            {
+                charNum += 32;
+                correct += (char)charNum;
+            }
+            else
+            {
+                charNum -= 32;
+                correct += (char)charNum;
+            }
+        }
+        
+        Console.WriteLine(correct);
+    }
+}
