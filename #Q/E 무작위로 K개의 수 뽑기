@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+
+public class Solution 
+{
+    public int[] solution(int[] arr, int k) 
+    {
+        List<int> arrange = new List<int>();
+
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (!arrange.Contains(arr[i]))
+            {
+                arrange.Add(arr[i]);
+            }
+        }
+        
+        int[] answer = new int[k];
+        
+        for (int i = 0; i < answer.Length; i++)
+        {
+            if (i >= arrange.Count)
+                answer[i] = -1;
+            else
+                answer[i] = arrange[i];
+        }
+
+        return answer;
+    }
+}
