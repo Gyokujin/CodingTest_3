@@ -1,0 +1,57 @@
+using System;
+
+public class Solution 
+{
+    public int[,] solution(int n) 
+    {
+        int[,] answer = new int[n, n];
+        answer[0, 0] = 1;
+        int x = 0;
+        int y = n - 1;
+        int curNum = 1;
+        int index = n - 1;
+        
+        for (int i = 0; i < n; i++)
+        {
+            answer[0, i] = curNum;
+            curNum++;
+        }
+        
+        while (curNum < n * n)
+        {
+            for (int i = 0; i < index; i++)
+            {
+                x++;
+                answer[x, y] = curNum;
+                curNum++;
+            }
+        
+            for (int i = 0; i < index; i++)
+            {
+                y--;
+                answer[x, y] = curNum;
+                curNum++;
+            }
+        
+            index--;
+        
+            for (int i = 0; i < index; i++)
+            {
+                x--;
+                answer[x, y] = curNum;
+                curNum++;
+            }
+        
+            for (int i = 0; i < index; i++)
+            {
+                y++;
+                answer[x, y] = curNum;
+                curNum++;
+            }
+            
+                index--;
+        }
+
+        return answer;
+    }
+}
