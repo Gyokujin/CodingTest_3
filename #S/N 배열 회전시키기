@@ -1,0 +1,42 @@
+using System;
+
+// 정수가 담긴 배열 numbers와 문자열 direction가 매개변수로 주어집니다. 배열 numbers의 원소를 direction방향으로 한 칸씩 회전시킨 배열을 return하도록 solution 함수를 완성해주세요.
+public class Solution 
+{
+    public int[] solution(int[] numbers, string direction) 
+    {
+        int[] answer = new int[numbers.Length];
+        
+        if (direction == "right")
+        {
+            for (int i = 0; i < answer.Length; i++)
+            {
+                if (i == 0)
+                {
+                    answer[i] = numbers[answer.Length - 1];
+                }
+                else
+                {
+                    answer[i] = numbers[i - 1];
+                }
+            }
+        }
+       else
+        {
+            for (int i = 0; i < answer.Length; i++)
+            {
+                if (i == answer.Length - 1)
+                {
+                    answer[i] = numbers[0];
+                }
+                else
+                {
+                    answer[i] = numbers[i + 1];
+                }
+            }
+        }
+
+        
+        return answer;
+    }
+}
