@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+
+// 문자열 my_string이 매개변수로 주어질 때, my_string 안에 있는 숫자만 골라 오름차순 정렬한 리스트를 return 하도록 solution 함수를 작성해보세요.
+public class Solution 
+{
+    public int[] solution(string my_string) 
+    {
+        List<int> numbers = new List<int>();
+        
+        for (int i = 0; i < my_string.Length; i++)
+        {
+            int num = 0;
+            num = (int.TryParse(my_string[i].ToString(), out num)) ? num : -1;
+            
+            if (num != -1)
+            {
+                numbers.Add(num);
+            }
+        }
+        
+        for (int i = 0; i < numbers.Count - 1; i++)
+        {
+            int min = numbers[i];
+            int minIndex = i;
+            
+            for (int j = i + 1; j < numbers.Count; j++)
+            {
+                if (min > numbers[j])
+                {
+                    min = numbers[j];
+                    minIndex = j;
+                }
+            }
+            
+            numbers.RemoveAt(minIndex);
+            numbers.Insert(i, min);
+
+        }
+        
+        int[] answer = new int[numbers.Count];
+        
+        for (int i = 0; i < answer.Length; i++)
+        {
+            answer[i] = numbers[i];
+        }
+        
+        return answer;
+    }
+}
