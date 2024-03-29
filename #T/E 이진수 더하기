@@ -1,0 +1,12 @@
+using System;
+
+// 이진수를 의미하는 두 개의 문자열 bin1과 bin2가 매개변수로 주어질 때, 두 이진수의 합을 return하도록 solution 함수를 완성해주세요.
+public class Solution
+{
+    public string solution(string bin1, string bin2)
+    {
+        int sum = Convert.ToInt32(bin1, 2) + Convert.ToInt32(bin2, 2); // 2진수 문자를 10진수 정수로 변환후 더한다.
+        string answer = Convert.ToString(sum, 2); // 합을 다시 2진수 문자로 변환한다.
+        return answer;
+    }
+}
