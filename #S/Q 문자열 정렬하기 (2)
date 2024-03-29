@@ -1,0 +1,44 @@
+using System;
+
+// 영어 대소문자로 이루어진 문자열 my_string이 매개변수로 주어질 때, my_string을 모두 소문자로 바꾸고 알파벳 순서대로 정렬한 문자열을 return 하도록 solution 함수를 완성해보세요.
+public class Solution
+{
+    public string solution(string my_string) 
+    {
+        int[] stringNum = new int[my_string.Length];
+        
+        for (int i = 0; i < my_string.Length; i++)
+        {
+            int ascii = (int)my_string[i];
+            
+            if (ascii >= 65 && ascii <= 90) // A ~ Z : 65 ~ 90, a ~ z : 97 ~ 122
+            {
+                ascii += 32;
+            }
+            
+            stringNum[i] = ascii;
+        }
+        
+        for (int i = 0; i < stringNum.Length - 1; i++)
+        {
+            for (int j = i + 1; j < stringNum.Length; j++)
+            {
+                if (stringNum[i] > stringNum[j])
+                {
+                    int temp = stringNum[i];
+                    stringNum[i] = stringNum[j];
+                    stringNum[j] = temp;
+                }
+            }
+        }
+        
+        string answer = "";
+        
+        for (int i = 0; i < stringNum.Length; i++)
+        {
+            answer += (char)stringNum[i];
+        }
+        
+        return answer;
+    }
+}
