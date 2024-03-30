@@ -1,0 +1,75 @@
+using System;
+
+// 영어가 싫은 머쓱이는 영어로 표기되어있는 숫자를 수로 바꾸려고 합니다. 문자열 numbers가 매개변수로 주어질 때, numbers를 정수로 바꿔 return 하도록 solution 함수를 완성해 주세요.
+public class Solution
+{
+    public long solution(string numbers)
+    {
+        string curWord = "";
+        string numWord = "";
+        
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            curWord += numbers[i].ToString();
+            
+            switch (curWord)
+            {
+                case "zero":
+                    numWord += "0";
+                    curWord = "";
+                    break;
+                    
+                case "one":
+                    numWord += "1";
+                    curWord = "";
+                    break;
+                    
+                case "two":
+                    numWord += "2";
+                    curWord = "";
+                    break;
+                    
+                case "three":
+                    numWord += "3";
+                    curWord = "";
+                    break;
+                    
+                case "four":
+                    numWord += "4";
+                    curWord = "";
+                    break;
+                    
+                case "five":
+                    numWord += "5";
+                    curWord = "";
+                    break;
+                    
+                case "six":
+                    numWord += "6";
+                    curWord = "";
+                    break;
+                    
+                case "seven":
+                    numWord += "7";
+                    curWord = "";
+                    break;
+                    
+                case "eight":
+                    numWord += "8";
+                    curWord = "";
+                    break;
+                    
+                case "nine":
+                    numWord += "9";
+                    curWord = "";
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+        
+        long answer = long.Parse(numWord);
+        return answer;
+    }
+}
