@@ -1,0 +1,31 @@
+using System;
+
+// 첫 번째 분수의 분자와 분모를 뜻하는 numer1, denom1, 두 번째 분수의 분자와 분모를 뜻하는 numer2, denom2가 매개변수로 주어집니다. 
+// 두 분수를 더한 값을 기약 분수로 나타냈을 때 분자와 분모를 순서대로 담은 배열을 return 하도록 solution 함수를 완성해보세요.
+public class Solution
+{
+    public int[] solution(int numer1, int denom1, int numer2, int denom2)
+    {
+        // 통분과 합을 동시에 한다.
+        int sumNumer = numer1 * denom2 + numer2 * denom1;
+        int sumDenom = denom1 * denom2;
+        
+        int div = 1;
+        int maxNum = sumNumer >= sumDenom ? sumNumer : sumDenom; // 분자와 분모중에 더 큰 값을 최대치로 잡고 while 반복을 한다.
+        
+        while (div <= maxNum) // 2부터 최대치까지 while문을 돌려서 나눌수 있는 값이 나오면 분수를 나누고 다시 2부터 세는걸 반복한다. 기약분수가 되면 while문이 종료된다.
+        {
+            div++;
+            
+            if (sumNumer % div == 0 && sumDenom % div == 0)
+            {
+                sumNumer /= div;
+                sumDenom /= div;
+                div = 1;
+            }
+        }
+        
+        int[] answer = { sumNumer, sumDenom };
+        return answer;
+    }
+}
