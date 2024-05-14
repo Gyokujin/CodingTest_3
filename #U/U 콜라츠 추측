@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+int solution(int num)
+{
+    int answer = 0;
+    long curNum = num;
+    
+    while (curNum != 1 && answer < 500)
+    {
+        if (curNum % 2 == 0)
+        {
+            curNum /= 2;
+        }
+        else
+        {
+            curNum = curNum * 3 + 1;
+        }
+        
+        answer++;
+    }
+
+    if (answer == 500)
+        answer = -1;
+    
+    return answer;
+}
