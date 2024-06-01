@@ -1,0 +1,20 @@
+using System;
+
+namespace ConsoleApp3
+{
+    internal class Program
+    {
+        // 아래 예제와 같이 고양이를 출력하시오.
+        // \    /\
+        //  )  ( ')
+        // (  /  )
+        //  \(__)|
+        static void Main(string[] args)
+        {
+            Console.WriteLine("\\    /\\");
+            Console.WriteLine(" )  ( ')");
+            Console.WriteLine("(  /  )");
+            Console.WriteLine(" \\(__)|");
+        }
+    }
+}
