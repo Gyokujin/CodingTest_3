@@ -1,0 +1,28 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+// 정수를 stack 형태로 저장하며 최소값을 출력하라
+int main()
+{
+	stack<int> numbers;
+
+	numbers.push(4);
+	numbers.push(8);
+	numbers.push(10);
+	numbers.push(14);
+	numbers.push(1);
+	int minNum = numbers.top();
+
+	while (!numbers.empty())
+	{
+		if (minNum > numbers.top())
+		{
+			minNum = numbers.top();
+		}
+
+		numbers.pop();
+	}
+
+	cout << "최소값은 " << minNum << endl;
+}
