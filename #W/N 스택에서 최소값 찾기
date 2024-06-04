@@ -1,0 +1,37 @@
+#include <iostream>
+#include <stack>
+#include <algorithm>
+using namespace std;
+
+// 스택에서 최소값 찾기
+int main()
+{
+	stack<int> numbers;
+	int input;
+	int minNum;
+
+	while (1)
+	{
+		cout << "스택에 추가할 값을 입력하세요. -1을 입력시 종료됩니다 " << endl;
+		cin >> input;
+
+		if (input == -1)
+			break;
+
+		numbers.push(input);
+	}
+
+	minNum = numbers.top();
+
+	while (!numbers.empty())
+	{
+		if (minNum > numbers.top())
+		{
+			minNum = numbers.top();
+		}
+
+		numbers.pop();
+	}
+
+	cout << "최소값은 " << minNum << "입니다." << endl;
+}
