@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+// 0부터 100까지의 수들 중에서 모든 홀수를 출력해주세요.
+int main()
+{
+	for (int i = 0; i <= 100; i++)
+	{
+		if (i % 2 != 0)
+		{
+			cout << i << endl;
+		}
+	}
+}
