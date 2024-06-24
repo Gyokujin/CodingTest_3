@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+// 2부터 100까지의 수들 중에서 소수를 모두 출력해주세요
+int main()
+{
+	for (int i = 2; i <= 100; i++)
+	{
+		int num = i;
+		bool able = true;
+
+		for (int j = 2; j < num; j++)
+		{
+			if (num % j == 0)
+			{
+				able = false;
+				break;
+			}
+		}
+
+		if (able)
+		{
+			cout << num << endl;
+		}
+	}
+}
