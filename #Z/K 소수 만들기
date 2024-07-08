@@ -1,0 +1,42 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// 주어진 숫자 중 3개의 수를 더했을 때 소수가 되는 경우의 개수를 구하려고 합니다. 숫자들이 들어있는 배열 nums가 매개변수로 주어질 때, nums에 있는 숫자들 중 서로 다른 3개를 골라 더했을 때 소수가 되는 경우의 개수를 return 하도록 solution 함수를 완성해주세요.
+int solution(vector<int> nums)
+{
+    int answer = 0;
+
+    for (int i = 0; i < nums.size() - 2; i++)
+    {
+        for (int j = i + 1; j < nums.size() - 1; j++)
+        {
+            for (int k = j + 1; k < nums.size(); k++)
+            {
+                int num = nums[i] + nums[j] + nums[k];
+                bool able = true;
+
+                for (int l = 2; l < num; l++)
+                {
+                    if (num % l == 0)
+                    {
+                        able = false;
+                        break;
+                    }
+                }
+
+                if (able)
+                    answer++;
+            }
+        }
+    }
+
+    cout << answer << endl;
+    return answer;
+}
+
+int main()
+{
+    solution(vector<int>{1, 2, 3, 4});
+    solution(vector<int>{1, 2, 7, 6, 4});
+}
