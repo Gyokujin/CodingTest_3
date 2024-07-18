@@ -1,0 +1,62 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+// 머쓱이는 태어난 지 11개월 된 조카를 돌보고 있습니다. 조카는 아직 "aya", "ye", "woo", "ma" 네 가지 발음과 네 가지 발음을 조합해서 만들 수 있는 발음밖에 하지 못하고 연속해서 같은 발음을 하는 것을 어려워합니다.
+// 문자열 배열 babbling이 매개변수로 주어질 때, 머쓱이의 조카가 발음할 수 있는 단어의 개수를 return하도록 solution 함수를 완성해주세요.
+int solution(vector<string> babbling)
+{
+    int answer = 0;
+
+    for (int i = 0; i < babbling.size(); i++)
+    {
+        int count = 0;
+        string targetWord = babbling[i];
+        string curWord;
+
+        for (int j = 0; j < targetWord.size(); j++)
+        {
+            if (targetWord.substr(j, 3) == "aya" && count != 1)
+            {
+                count = 1;
+                j += 2;
+                curWord += "aya";
+            }
+            else if (targetWord.substr(j, 2) == "ma" && count != 2)
+            {
+                count = 2;
+                j += 1;
+                curWord += "ma";
+            }
+            else if (targetWord.substr(j, 3) == "woo" && count != 3)
+            {
+                count = 3;
+                j += 2;
+                curWord += "woo";
+            }
+            else if (targetWord.substr(j, 2) == "ye" && count != 4)
+            {
+                count = 4;
+                j += 1;
+                curWord += "ye";
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        if (curWord == targetWord)
+            answer++;
+    }
+
+    cout << answer << endl;
+    return answer;
+}
+
+int main()
+{
+    solution(vector<string> {"aya", "yee", "u", "maa"});
+    solution(vector<string> {"ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"});
+}
